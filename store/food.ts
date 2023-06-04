@@ -140,6 +140,9 @@ const foodSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder
+            .addCase(getAll.pending, (state, action) => {
+                state.status = 'loading'
+            })
             .addCase(getAll.fulfilled, (state, action) => {
                 state.status = 'success'
                 state.data = action.payload
